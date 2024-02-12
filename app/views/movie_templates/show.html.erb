@@ -112,19 +112,12 @@
     Director
   </dt>
   <dd>
-    <%# the_id = @the_movie.director_id %>
-<!---->
-    <%# matching_directors = Director.where({ :id => the_id }) %>
-<!--        -->
-    <%# the_director = matching_directors.at(0) %>
-<!---->
-    <%# if @the_director != nil %>
-      <%#= @the_director.name %>
-    <%# else %>
-<!--      Uh oh! We weren't able to find a director for this movie.-->
-    <%# end %>
-    <h1>Test</h1>
-    <%= @the_movie.director.inspect  %>
+    <% if @the_movie.director == nil %>
+      <%= "Uh oh! We weren't able to find a director for this movie." %>
+    <% else %>
+      <%= @the_movie.director.name %>
+    <% end %>
+    
   </dd>
 
   <dt>
